@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age in Months Calculator — How Old Are You in Months Weeks and Days</title>
+  <meta name="description" content="Calculate your exact age in months, weeks, days, hours and more. Includes baby milestone tracker and CDC developmental guidelines. Free instant calculator.">
+  <meta name="keywords" content="age in months calculator, how old am I in months, baby age in months, age in weeks calculator, how many days old am I, how many months old is my baby, when do you stop counting age in months">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ageinmonths.com/">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Age in Months Calculator — How Old Are You in Months Weeks and Days">
+  <meta property="og:description" content="Calculate your exact age in months, weeks, days, hours and more. Free instant calculator with baby milestone tracker.">
+  <meta property="og:url" content="https://ageinmonths.com/">
+  <meta property="og:type" content="website">
+  <!-- Schema.org WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Age in Months Calculator",
+    "url": "https://ageinmonths.com",
+    "description": "Calculate your exact age in months, weeks, days, hours, minutes, seconds, and more. Includes CDC developmental milestone tracker for babies and toddlers.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "featureList": ["Age in months calculation","Age in weeks and days","Live real-time counters","Baby milestone tracker","CDC developmental guidelines","Shareable results"]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1a2744;
+      --navy-light: #243257;
+      --navy-mid: #2e3e6b;
+      --amber: #d4893a;
+      --amber-light: #e8a85c;
+      --amber-pale: #fdf3e7;
+      --cream: #faf8f4;
+      --cream-dark: #f2ede3;
+      --text-dark: #1a1a1a;
+      --text-body: #3d3d3d;
+      --text-muted: #7a7a7a;
+      --text-light: #a8a8a8;
+      --white: #ffffff;
+      --border: #e2ddd4;
+      --shadow-sm: 0 1px 4px rgba(26,39,68,0.07);
+      --shadow-md: 0 4px 20px rgba(26,39,68,0.10);
+      --shadow-lg: 0 12px 40px rgba(26,39,68,0.14);
+      --radius: 12px;
+      --radius-lg: 20px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-body);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* NAV */
+    nav {
+      background: var(--navy);
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    }
+    .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .nav-brand span { color: var(--amber-light); }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,0.72);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 60%, #3d2e5e 100%);
+      padding: 60px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(212,137,58,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      left: -40px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(212,137,58,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--amber-light);
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.68);
+      max-width: 520px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    /* MAIN LAYOUT */
+    .main-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* INPUT CARD */
+    .input-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: 40px;
+      margin-top: -40px;
+      position: relative;
+      z-index: 10;
+      border: 1px solid var(--border);
+    }
+    .input-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--navy);
+      margin-bottom: 28px;
+      font-weight: 600;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: end;
+    }
+    @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }
+    .field label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .field input[type="date"],
+    .field input[type="text"] {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      color: var(--text-dark);
+      background: var(--cream);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .field input:focus {
+      border-color: var(--amber);
+      box-shadow: 0 0 0 3px rgba(212,137,58,0.12);
+      background: var(--white);
+    }
+    .toggle-row {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .toggle-label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-body);
+    }
+    .toggle-btn {
+      display: flex;
+      background: var(--cream-dark);
+      border-radius: 40px;
+      padding: 4px;
+      gap: 4px;
+    }
+    .toggle-btn button {
+      padding: 8px 18px;
+      border: none;
+      border-radius: 32px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: transparent;
+      color: var(--text-muted);
+    }
+    .toggle-btn button.active {
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ADSENSE PLACEHOLDER */
+    .ad-container {
+      background: var(--cream-dark);
+      border: 1.5px dashed var(--border);
+      border-radius: var(--radius);
+      text-align: center;
+      margin: 28px 0;
+    }
+    .ad-container.ad-banner { padding: 18px; min-height: 80px; }
+    .ad-container.ad-rect { padding: 18px; min-height: 250px; max-width: 400px; }
+    .ad-label {
+      font-size: 0.72rem;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+    }
+
+    /* RESULTS — hidden until calculated */
+    #results-section { display: none; }
+    #results-section.visible { display: block; }
+
+    /* PRIMARY MONTH DISPLAY */
+    .month-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border-radius: var(--radius-lg);
+      padding: 48px 40px;
+      text-align: center;
+      margin-top: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .month-hero::before {
+      content: '';
+      position: absolute;
+      top: -50px; right: -50px;
+      width: 250px; height: 250px;
+      background: radial-gradient(circle, rgba(212,137,58,0.15) 0%, transparent 70%);
+    }
+    .month-hero-greeting {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 8px;
+      font-weight: 400;
+    }
+    .month-number {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(4rem, 12vw, 7rem);
+      font-weight: 700;
+      color: var(--amber-light);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .month-label {
+      font-size: 1.4rem;
+      color: rgba(255,255,255,0.85);
+      margin-top: 6px;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+    }
+    .month-years {
+      margin-top: 16px;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.9rem;
+    }
+
+    /* STATS GRID */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    @media (max-width: 600px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+    .stat-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .stat-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .stat-card.live-card { border-color: rgba(212,137,58,0.3); }
+    .stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.1;
+    }
+    .stat-value.live { color: var(--amber); }
+    .stat-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .stat-sub {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: 6px;
+    }
+    .live-dot {
+      display: inline-block;
+      width: 7px; height: 7px;
+      background: var(--amber);
+      border-radius: 50%;
+      margin-right: 5px;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.5; transform:scale(0.85); } }
+
+    /* SECTION HEADERS */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--navy);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .section-divider {
+      margin: 40px 0 32px;
+      border: none;
+      border-top: 1.5px solid var(--border);
+    }
+
+    /* HEARTBEAT + SLEEP + EATING */
+    .fun-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 16px;
+    }
+    @media (max-width: 500px) { .fun-stats { grid-template-columns: 1fr; } }
+    .fun-card {
+      background: var(--amber-pale);
+      border-radius: var(--radius);
+      padding: 22px;
+      border: 1px solid rgba(212,137,58,0.2);
+    }
+    .fun-icon { font-size: 1.4rem; margin-bottom: 10px; }
+    .fun-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .fun-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .fun-formula {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    /* PROGRESS BAR */
+    .progress-section {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      margin-top: 16px;
+    }
+    .progress-methods {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 540px) { .progress-methods { grid-template-columns: 1fr; } }
+    .progress-method h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .progress-bar-wrap {
+      background: var(--cream-dark);
+      border-radius: 40px;
+      height: 10px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 40px;
+      background: linear-gradient(90deg, var(--navy) 0%, var(--amber) 100%);
+      transition: width 1s cubic-bezier(0.4,0,0.2,1);
+    }
+    .progress-pct {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .progress-explain {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+    .progress-crosslink {
+      margin-top: 24px;
+      padding: 18px 22px;
+      background: linear-gradient(90deg, rgba(26,39,68,0.04) 0%, rgba(212,137,58,0.06) 100%);
+      border-radius: var(--radius);
+      border-left: 3px solid var(--amber);
+      font-size: 0.9rem;
+      color: var(--text-body);
+    }
+    .progress-crosslink a {
+      color: var(--amber);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .progress-crosslink a:hover { text-decoration: underline; }
+
+    /* MILESTONES */
+    .countdown-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+    @media (max-width: 600px) { .countdown-cards { grid-template-columns: 1fr 1fr; } }
+    .countdown-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      text-align: center;
+    }
+    .countdown-days {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--amber);
+      line-height: 1;
+    }
+    .countdown-event {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* PARENT/MILESTONE SECTION */
+    #milestone-section { display: none; }
+    #milestone-section.visible { display: block; }
+    .milestone-intro {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      margin-bottom: 24px;
+    }
+    .milestone-intro h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+    .milestone-intro p { font-size: 0.9rem; color: rgba(255,255,255,0.7); }
+    .milestone-age-badge {
+      display: inline-block;
+      background: var(--amber);
+      color: var(--white);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .milestone-domain {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .milestone-domain-header {
+      padding: 14px 20px;
+      background: var(--cream-dark);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--navy);
+    }
+    .milestone-list { padding: 8px 20px 12px; }
+    .milestone-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--cream-dark);
+      font-size: 0.9rem;
+      color: var(--text-body);
+    }
+    .milestone-item:last-child { border-bottom: none; }
+    .milestone-check {
+      width: 18px; height: 18px;
+      border: 1.5px solid var(--border);
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .milestone-check.checked {
+      background: var(--amber);
+      border-color: var(--amber);
+    }
+    .milestone-attribution {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: var(--cream-dark);
+      border-radius: 8px;
+    }
+    .milestone-disclaimer {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      padding: 12px 16px;
+      border-left: 3px solid var(--amber);
+      background: var(--amber-pale);
+      border-radius: 0 8px 8px 0;
+    }
+
+    /* SHARE CARD */
+    .share-section {
+      background: var(--navy);
+      border-radius: var(--radius-lg);
+      padding: 36px 40px;
+      text-align: center;
+      margin-top: 32px;
+    }
+    .share-section h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+    }
+    .share-card-preview {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+    }
+    .share-btn {
+      background: var(--amber);
+      color: var(--white);
+      border: none;
+      padding: 13px 32px;
+      border-radius: 40px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin: 6px;
+    }
+    .share-btn:hover { background: var(--amber-light); transform: translateY(-1px); }
+    .share-copied {
+      font-size: 0.85rem;
+      color: var(--amber-light);
+      margin-top: 8px;
+      min-height: 20px;
+    }
+
+    /* DIGITAL PRODUCTS */
+    .products-section {
+      margin-top: 48px;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+    }
+    @media (max-width: 680px) { .products-grid { grid-template-columns: 1fr; } }
+    .product-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .product-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .product-preview-placeholder {
+      height: 160px;
+      background: linear-gradient(135deg, var(--cream-dark) 0%, var(--amber-pale) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 20px;
+    }
+    .product-info { padding: 20px; }
+    .product-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .product-description {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+    .product-price {
+      font-weight: 700;
+      color: var(--amber);
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.65);
+      padding: 48px 24px 32px;
+      margin-top: 64px;
+    }
+    .footer-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .footer-companion {
+      background: rgba(212,137,58,0.12);
+      border: 1px solid rgba(212,137,58,0.25);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+    .footer-companion p { color: rgba(255,255,255,0.8); font-size: 0.9rem; }
+    .footer-companion a {
+      color: var(--amber-light);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .footer-companion a:hover { text-decoration: underline; }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.85); }
+    .footer-attribution {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.7;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+    }
+
+    /* GENERAL UTILITIES */
+    .section-wrap { margin-top: 40px; }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">Age<span>In</span>Months</a>
+    <div class="nav-links">
+      <a href="/about.html">About</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="https://statisticallifeleft.com" title="See your statistical life remaining">Life Remaining →</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <p class="hero-eyebrow">Free Instant Calculator</p>
+  <h1>How old are you<br>in months, weeks, and days?</h1>
+  <p class="hero-sub">Enter your date of birth for a complete breakdown of your age — every unit, live and precise.</p>
+</header>
+
+<main class="main-wrap">
+
+  <!-- INPUT CARD -->
+  <div class="input-card">
+    <h2>Enter a date of birth</h2>
+    <div class="form-grid">
+      <div class="field">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" max="" aria-label="Date of birth">
+      </div>
+      <div class="field">
+        <label for="person-name">Name <span style="font-weight:300;text-transform:none;letter-spacing:0">(optional)</span></label>
+        <input type="text" id="person-name" name="person-name" placeholder="e.g. Emma or just me" maxlength="40">
+      </div>
+    </div>
+    <div class="toggle-row">
+      <span class="toggle-label">Mode:</span>
+      <div class="toggle-btn">
+        <button id="btn-adult" class="active" onclick="setMode('adult')">For me</button>
+        <button id="btn-child" onclick="setMode('child')">For a child</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADSENSE UNIT 1 — replace with AdSense code after approval -->
+  <div class="ad-container ad-banner" aria-label="Advertisement">
+    <p class="ad-label">Advertisement</p>
+  </div>
+
+  <!-- RESULTS SECTION -->
+  <section id="results-section" aria-live="polite">
+
+    <!-- Primary months display -->
+    <div class="month-hero">
+      <p class="month-hero-greeting" id="greeting-line">You are</p>
+      <div class="month-number" id="display-months">—</div>
+      <div class="month-label">months old</div>
+      <div class="month-years" id="display-years-decimal"></div>
+    </div>
+
+    <!-- Stats grid -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value" id="stat-years">—</div>
+        <div class="stat-label">Years</div>
+        <div class="stat-sub" id="stat-years-sub"></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="stat-weeks">—</div>
+        <div class="stat-label">Weeks</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="stat-days">—</div>
+        <div class="stat-label">Days</div>
+      </div>
+      <div class="stat-card live-card">
+        <div class="stat-value live" id="stat-hours">—</div>
+        <div class="stat-label"><span class="live-dot"></span>Hours (live)</div>
+      </div>
+      <div class="stat-card live-card">
+        <div class="stat-value live" id="stat-minutes">—</div>
+        <div class="stat-label"><span class="live-dot"></span>Minutes (live)</div>
+      </div>
+      <div class="stat-card live-card">
+        <div class="stat-value live" id="stat-seconds">—</div>
+        <div class="stat-label"><span class="live-dot"></span>Seconds (live)</div>
+      </div>
+    </div>
+
+    <!-- Fun stats: heartbeats, sleep, eating -->
+    <div class="section-wrap">
+      <p class="section-title">Life in perspective</p>
+      <p class="section-sub">Some less common ways to think about your time on Earth.</p>
+      <div class="fun-stats">
+        <div class="fun-card">
+          <div class="fun-icon">♥</div>
+          <div class="fun-number" id="stat-heartbeats">—</div>
+          <div class="fun-desc">Estimated heartbeats</div>
+          <div class="fun-formula">Formula: days × 24 × 60 × 70 beats/min</div>
+        </div>
+        <div class="fun-card">
+          <div class="fun-icon">🌙</div>
+          <div class="fun-number" id="stat-sleep">—</div>
+          <div class="fun-desc">Time spent sleeping</div>
+          <div class="fun-formula">Approx. 8 hours/day (⅓ of life)</div>
+        </div>
+        <div class="fun-card">
+          <div class="fun-icon">🍽</div>
+          <div class="fun-number" id="stat-eating">—</div>
+          <div class="fun-desc">Time spent eating</div>
+          <div class="fun-formula">Approx. 1.5 hours/day average</div>
+        </div>
+        <div class="fun-card">
+          <div class="fun-icon">🌅</div>
+          <div class="fun-number" id="stat-sunrises">—</div>
+          <div class="fun-desc">Sunrises witnessed</div>
+          <div class="fun-formula">One per day of life</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress / lifespan section -->
+    <hr class="section-divider">
+    <p class="section-title">Your place in the lifespan</p>
+    <p class="section-sub">Two ways to calculate what percentage of an average life you've lived. <a href="/methodology.html" style="color:var(--amber)">How is this calculated?</a></p>
+    <div class="progress-section">
+      <div class="progress-methods">
+        <div class="progress-method">
+          <h4>Method A — Birth life expectancy</h4>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" id="bar-a" style="width:0%"></div>
+          </div>
+          <div class="progress-pct" id="pct-a">—%</div>
+          <div class="progress-explain" id="explain-a">Your age divided by life expectancy at birth for your demographic.</div>
+        </div>
+        <div class="progress-method">
+          <h4>Method B — Cohort adjusted</h4>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" id="bar-b" style="width:0%;background:linear-gradient(90deg,var(--amber) 0%,#c45c1e 100%)"></div>
+          </div>
+          <div class="progress-pct" id="pct-b">—%</div>
+          <div class="progress-explain" id="explain-b">Accounts for the fact that by surviving to your current age, your remaining life expectancy is higher than at birth.</div>
+        </div>
+      </div>
+      <div class="progress-crosslink">
+        Want to know exactly how much time remains? <a href="https://statisticallifeleft.com" title="Calculate your statistical life remaining">See your statistical life remaining →</a> — a full actuarial breakdown of your time ahead.
+      </div>
+    </div>
+
+    <!-- Next milestone countdown -->
+    <div class="section-wrap">
+      <p class="section-title">Upcoming milestones</p>
+      <p class="section-sub">How many days until your next significant moment.</p>
+      <div class="countdown-cards" id="countdown-cards"></div>
+    </div>
+
+    <!-- ADSENSE UNIT 2 — replace with AdSense code after approval -->
+    <div class="ad-container ad-rect" aria-label="Advertisement">
+      <p class="ad-label">Advertisement</p>
+    </div>
+
+    <!-- MILESTONE / CHILD SECTION -->
+    <section id="milestone-section">
+      <p class="section-title">Developmental milestones</p>
+      <p class="section-sub">Based on CDC Learn the Signs. Act Early. guidelines.</p>
+      <div class="milestone-intro">
+        <h3 id="milestone-age-heading">Milestones for your child's age</h3>
+        <p>These are general guidelines. Every child develops at their own pace. Discuss any questions or concerns with your child's pediatrician.</p>
+      </div>
+      <div id="milestone-content"></div>
+      <div class="milestone-attribution">
+        <strong>Source:</strong> CDC Learn the Signs. Act Early. program — last updated 2022.
+        Visit <a href="https://www.cdc.gov/ncbddd/actearly" target="_blank" rel="noopener" style="color:var(--amber)">cdc.gov/ncbddd/actearly</a> for the complete guidelines.
+      </div>
+      <div class="milestone-disclaimer">
+        <strong>Important:</strong> Developmental milestones are general guidelines based on population averages. Many children reach milestones earlier or later than the listed ages. If you have concerns about your child's development, please speak with your pediatrician.
+      </div>
+    </section>
+
+    <!-- ADSENSE UNIT 3 — replace with AdSense code after approval -->
+    <div class="ad-container ad-banner" aria-label="Advertisement">
+      <p class="ad-label">Advertisement</p>
+    </div>
+
+    <!-- SHARE CARD -->
+    <div class="share-section">
+      <h3>Share your age in months</h3>
+      <div class="share-card-preview" id="share-preview">Enter your date of birth above to generate your share card.</div>
+      <br>
+      <button class="share-btn" onclick="copyShare()">Copy to clipboard</button>
+      <p class="share-copied" id="share-copied"></p>
+    </div>
+
+  </section>
+
+  <!-- DIGITAL PRODUCTS SECTION -->
+  <section class="products-section">
+    <p class="section-title">Baby milestone resources</p>
+    <p class="section-sub">Beautifully designed printable tools for parents.</p>
+    <div class="products-grid">
+
+      <!-- GUMROAD PRODUCT Baby Milestone Tracker PDF — paste Gumroad embed code below -->
+      <div class="product-card" id="product-milestone-tracker">
+        <div class="product-preview-placeholder">
+          [Product preview image]
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Baby Milestone Tracker PDF</h3>
+          <p class="product-description">Track every milestone from birth through 5 years with this beautifully designed printable chart. Includes all CDC developmental domains.</p>
+          <p class="product-price">$9</p>
+          <!-- PASTE GUMROAD BUTTON CODE HERE -->
+        </div>
+      </div>
+
+      <!-- GUMROAD PRODUCT First Year Memory Journal PDF — paste Gumroad embed code below -->
+      <div class="product-card" id="product-memory-journal">
+        <div class="product-preview-placeholder">
+          [Product preview image]
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">First Year Memory Journal PDF</h3>
+          <p class="product-description">A month-by-month keepsake journal for baby's first year. Prompts for memories, milestones, measurements, and firsts.</p>
+          <p class="product-price">$12</p>
+          <!-- PASTE GUMROAD BUTTON CODE HERE -->
+        </div>
+      </div>
+
+      <!-- GUMROAD PRODUCT Monthly Photo Cards PDF — paste Gumroad embed code below -->
+      <div class="product-card" id="product-photo-cards">
+        <div class="product-preview-placeholder">
+          [Product preview image]
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Monthly Photo Cards PDF</h3>
+          <p class="product-description">Printable milestone number cards for monthly baby photos. Months 1–12 plus special occasion cards. Print as many as you need.</p>
+          <p class="product-price">$7</p>
+          <!-- PASTE GUMROAD BUTTON CODE HERE -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-companion">
+      <p>Explore our companion tool: <a href="https://statisticallifeleft.com" title="Statistical Life Remaining Calculator">StatisticalLifeLeft.com</a> — see your remaining years, months, weeks and days using CDC actuarial data.</p>
+    </div>
+    <div class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/data-sources.html">Data Sources</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="https://statisticallifeleft.com">StatisticalLifeLeft.com</a>
+    </div>
+    <div class="footer-attribution">
+      Life expectancy data: CDC National Vital Statistics Reports and WHO Global Health Observatory.<br>
+      Developmental milestone data: CDC Learn the Signs. Act Early. program.<br>
+      This tool provides statistical estimates for general information only and is not medical or financial advice.<br>
+      No personal data is collected or stored. See our <a href="/privacy.html" style="color:rgba(255,255,255,0.5)">privacy policy</a>.
+    </div>
+  </div>
+</footer>
+
+<script>
+// ============================================================
+// CDC DEVELOPMENTAL MILESTONES DATA
+// Source: CDC Learn the Signs. Act Early. — 2022 revision
+// ============================================================
+const CDC_MILESTONES = {
+  2: {
+    label: "2 months",
+    social: [
+      "Calms down when spoken to or picked up",
+      "Looks at your face",
+      "Seems happy to see you when you walk up to them",
+      "Smiles when you talk to or smile at them"
+    ],
+    language: [
+      "Makes sounds other than crying",
+      "Reacts to loud sounds"
+    ],
+    cognitive: [
+      "Watches you as you move",
+      "Looks at a toy for several seconds"
+    ],
+    motor: [
+      "Holds head up when on tummy",
+      "Moves both arms and both legs",
+      "Opens hands briefly"
+    ]
+  },
+  4: {
+    label: "4 months",
+    social: [
+      "Smiles on their own to get your attention",
+      "Chuckles (not yet a full laugh) when you make funny faces or sounds",
+      "Looks at you, moves, or makes sounds to get or keep your attention"
+    ],
+    language: [
+      "Makes sounds like 'oooo', 'aahh' (cooing)",
+      "Makes sounds back when you talk to them",
+      "Turns head toward the sound of your voice"
+    ],
+    cognitive: [
+      "If hungry, shows you they want to be fed by opening mouth when they see breast or bottle",
+      "Looks at their hands with interest"
+    ],
+    motor: [
+      "Holds head steady without support when you are holding them",
+      "Holds a toy when you put it in their hand",
+      "Uses their arm to swing at toys",
+      "Brings hands to mouth",
+      "Pushes up onto elbows/forearms when on tummy"
+    ]
+  },
+  6: {
+    label: "6 months",
+    social: [
+      "Knows familiar people",
+      "Likes to look at themselves in a mirror",
+      "Laughs"
+    ],
+    language: [
+      "Takes turns making sounds with you",
+      "Blows 'raspberries' (sticks tongue out and blows)",
+      "Makes squealing noises"
+    ],
+    cognitive: [
+      "Puts things in their mouth to explore them",
+      "Reaches to grab a toy they want",
+      "Closes lips to show they don't want more food"
+    ],
+    motor: [
+      "Rolls from tummy to back",
+      "Pushes up with straight arms when on tummy",
+      "Leans on hands to support themselves when sitting"
+    ]
+  },
+  9: {
+    label: "9 months",
+    social: [
+      "Is shy, clingy, or fearful around strangers",
+      "Shows several facial expressions, like happy, sad, angry, and surprised",
+      "Looks when you call their name",
+      "Reacts when you leave (looks, reaches for you, or cries)",
+      "Smiles or laughs when you play peek-a-boo"
+    ],
+    language: [
+      "Makes a lot of different sounds like 'mamamama' and 'babababa'",
+      "Lifts arms up to be picked up",
+      "Points at things"
+    ],
+    cognitive: [
+      "Looks for objects when dropped out of sight (like a spoon that falls)",
+      "Bangs two things together"
+    ],
+    motor: [
+      "Gets to a sitting position by themselves",
+      "Moves things from one hand to the other hand",
+      "Uses fingers to 'rake' food toward themselves",
+      "Sits without support"
+    ]
+  },
+  12: {
+    label: "12 months",
+    social: [
+      "Plays games with you, like pat-a-cake"
+    ],
+    language: [
+      "Waves 'bye-bye'",
+      "Calls a parent 'mama' or 'dada' or another special name",
+      "Understands 'no' (pauses briefly or stops when you say it)"
+    ],
+    cognitive: [
+      "Puts something into a container, like a block in a cup",
+      "Looks for things they see you hide, like a toy under a blanket"
+    ],
+    motor: [
+      "Pulls up to stand",
+      "Walks, holding on to furniture",
+      "Drinks from a cup without a lid, as you hold it",
+      "Picks things up between thumb and pointer finger, like small bits of food"
+    ]
+  },
+  15: {
+    label: "15 months",
+    social: [
+      "Copies other children while playing, like taking toys out of a container when another child does",
+      "Shows you an object they like",
+      "Claps when excited",
+      "Hugs stuffed doll or other toy",
+      "Shows you affection (hugs, cuddles, or kisses you)"
+    ],
+    language: [
+      "Tries to say one or two words besides 'mama' or 'dada', like 'ba' for ball or 'da' for dog",
+      "Looks at a familiar object when you name it",
+      "Follows directions given with both a gesture and words — for example, gives you a toy when you hold out your hand and say 'give me the toy'",
+      "Points to ask for something or to get help"
+    ],
+    cognitive: [
+      "Tries to use things the right way, like a phone, cup, or book",
+      "Stacks at least two small objects, like blocks"
+    ],
+    motor: [
+      "Takes a few steps on their own",
+      "Uses fingers to feed themselves some food"
+    ]
+  },
+  18: {
+    label: "18 months",
+    social: [
+      "Moves away from you, but looks to make sure you are close by",
+      "Points to show you something interesting",
+      "Puts hands out for you to wash them",
+      "Looks at a few pages in a book with you",
+      "Helps you dress them by pushing arm through sleeve or lifting up foot"
+    ],
+    language: [
+      "Tries to say three or more words besides 'mama' or 'dada'",
+      "Follows one-step directions without any gestures, like giving you the toy when you say 'give it to me'"
+    ],
+    cognitive: [
+      "Copies you doing chores, like sweeping with a broom",
+      "Plays with toys in a simple way, like pushing a toy car"
+    ],
+    motor: [
+      "Walks without holding on to anyone or anything",
+      "Scribbles",
+      "Drinks from a cup without a lid and may spill sometimes",
+      "Feeds themselves with their fingers",
+      "Tries to use a spoon",
+      "Climbs on and off a couch or chair without help"
+    ]
+  },
+  24: {
+    label: "24 months (2 years)",
+    social: [
+      "Notices when others are hurt or upset, like pausing or looking sad when someone is crying",
+      "Looks at your face to see how to react in a new situation"
+    ],
+    language: [
+      "Points to things in a book when you ask, like 'where is the bear?'",
+      "Says at least two words together, like 'more milk'",
+      "Points to at least two body parts when you ask them to show you",
+      "Uses more gestures than just waving and pointing, like blowing a kiss or nodding yes"
+    ],
+    cognitive: [
+      "Holds something in one hand while using the other hand",
+      "Tries to use switches, knobs, or buttons on a toy",
+      "Plays with more than one toy at the same time, like putting toy food on a toy plate"
+    ],
+    motor: [
+      "Kicks a ball",
+      "Runs",
+      "Walks (not climbs) up a few stairs with or without help",
+      "Eats with a spoon"
+    ]
+  },
+  30: {
+    label: "30 months",
+    social: [
+      "Plays next to other children and sometimes plays with them",
+      "Shows you what they can do by saying 'look at me!'",
+      "Follows simple routines when told, like helping pick up toys when you say 'it's clean-up time'"
+    ],
+    language: [
+      "Says about 50 words",
+      "Says two or more words together, with one action word, like 'doggie run' or 'me fall'",
+      "Names things in a book when you point and ask 'what is this?'",
+      "Says words like 'I,' 'me,' or 'we'"
+    ],
+    cognitive: [
+      "Uses things to pretend, like feeding a block to a doll as if it were food",
+      "Shows simple problem-solving skills, like standing on a small stool to reach something",
+      "Follows two-step instructions, like 'put the toy down and come here'",
+      "Shows they know at least one color, like pointing to a red crayon when you ask 'which one is red?'"
+    ],
+    motor: [
+      "Uses hands to twist things, like turning doorknobs or unscrewing lids",
+      "Takes some clothes off by themselves, like loose pants or an open jacket",
+      "Jumps off the ground with both feet",
+      "Turns book pages one at a time"
+    ]
+  },
+  36: {
+    label: "36 months (3 years)",
+    social: [
+      "Calms down within 10 minutes after you leave them, like at a childcare drop off",
+      "Notices other children and joins them to play"
+    ],
+    language: [
+      "Talks with you in conversation using at least two back-and-forth exchanges",
+      "Asks 'who,' 'what,' 'where,' or 'why' questions, like 'where is mommy/daddy?'",
+      "Says what action is happening in a picture or book when asked, like 'running,' 'eating,' or 'playing'",
+      "Says first name, when asked",
+      "Talks well enough for others to understand, most of the time"
+    ],
+    cognitive: [
+      "Draws a circle, when you show them how",
+      "Avoids touching hot objects, like a stove, when you warn them"
+    ],
+    motor: [
+      "Strings items together, like large beads or macaroni",
+      "Puts on some clothes by themselves, like loose pants or a jacket",
+      "Uses a fork"
+    ]
+  },
+  48: {
+    label: "48 months (4 years)",
+    social: [
+      "Pretends to be something else during play (teacher, superhero, dog)",
+      "Asks to go play with children if none are around",
+      "Comforts others who are hurt or sad",
+      "Avoids danger, like not jumping from tall heights at a playground",
+      "Likes to be a 'helper'",
+      "Changes behavior based on where they are (place of worship, library, playground)"
+    ],
+    language: [
+      "Says sentences with four or more words",
+      "Says some words from a song, story, or nursery rhyme",
+      "Talks about at least one thing that happened during the day, like at dinner or bedtime",
+      "Answers simple questions like 'what is a coat for?' or 'what is a crayon for?'"
+    ],
+    cognitive: [
+      "Names a few colors of items",
+      "Tells what comes next in a well-known story",
+      "Draws a person with three or more body parts"
+    ],
+    motor: [
+      "Catches a large ball most of the time",
+      "Serves themselves food or pours water, with adult supervision",
+      "Unbuttons some buttons",
+      "Holds crayon or pencil between fingers and thumb (not a fist)"
+    ]
+  },
+  60: {
+    label: "60 months (5 years)",
+    social: [
+      "Follows rules or takes turns when playing games with other children",
+      "Sings, dances, or acts for you",
+      "Does simple chores at home, like matching socks or clearing the table after eating"
+    ],
+    language: [
+      "Tells a story they heard or made up with at least two events",
+      "Answers simple questions about a book or story after you read or tell it to them",
+      "Keeps a conversation going with more than three back-and-forth exchanges",
+      "Uses or recognizes simple rhymes (bat-cat, ball-tall)"
+    ],
+    cognitive: [
+      "Counts to 10",
+      "Names some numbers between 1 and 5 when you point to them",
+      "Uses words about time, like 'yesterday,' 'tomorrow,' 'morning,' or 'night'",
+      "Pays attention for 5 to 10 minutes during activities",
+      "Writes some letters in their name",
+      "Names some letters when you point to them"
+    ],
+    motor: [
+      "Buttons some buttons",
+      "Hops on one foot"
+    ]
+  }
+};
+
+// ============================================================
+// US LIFE EXPECTANCY DATA (CDC NVSR 2021 — most recent)
+// Source: CDC National Vital Statistics Reports Vol 72 No 9
+// ============================================================
+const LIFE_EXPECTANCY_US = {
+  // [male_remaining, female_remaining] at each age
+  birth: { male: 73.5, female: 79.3 },
+  byAge: {
+    0:  [73.5, 79.3], 1:  [73.0, 78.8], 2:  [72.0, 77.9], 3:  [71.1, 76.9],
+    4:  [70.1, 75.9], 5:  [69.1, 74.9], 6:  [68.1, 73.9], 7:  [67.1, 72.9],
+    8:  [66.2, 71.9], 9:  [65.2, 70.9], 10: [64.2, 70.0], 11: [63.2, 69.0],
+    12: [62.2, 68.0], 13: [61.3, 67.0], 14: [60.3, 66.0], 15: [59.3, 65.1],
+    16: [58.4, 64.1], 17: [57.5, 63.1], 18: [56.6, 62.2], 19: [55.7, 61.2],
+    20: [54.8, 60.3], 21: [53.9, 59.3], 22: [53.1, 58.4], 23: [52.2, 57.4],
+    24: [51.3, 56.5], 25: [50.5, 55.5], 26: [49.6, 54.6], 27: [48.7, 53.7],
+    28: [47.8, 52.7], 29: [47.0, 51.8], 30: [46.1, 50.8], 31: [45.2, 49.9],
+    32: [44.4, 49.0], 33: [43.5, 48.0], 34: [42.6, 47.1], 35: [41.8, 46.1],
+    36: [40.9, 45.2], 37: [40.1, 44.3], 38: [39.2, 43.3], 39: [38.4, 42.4],
+    40: [37.5, 41.5], 41: [36.7, 40.5], 42: [35.9, 39.6], 43: [35.0, 38.7],
+    44: [34.2, 37.8], 45: [33.4, 36.9], 46: [32.6, 36.0], 47: [31.8, 35.1],
+    48: [31.0, 34.2], 49: [30.2, 33.3], 50: [29.5, 32.4], 51: [28.7, 31.5],
+    52: [27.9, 30.6], 53: [27.2, 29.8], 54: [26.5, 28.9], 55: [25.7, 28.1],
+    56: [25.0, 27.2], 57: [24.3, 26.4], 58: [23.6, 25.6], 59: [22.9, 24.7],
+    60: [22.2, 23.9], 61: [21.5, 23.1], 62: [20.9, 22.3], 63: [20.2, 21.5],
+    64: [19.6, 20.8], 65: [18.9, 20.0], 66: [18.3, 19.3], 67: [17.6, 18.5],
+    68: [17.0, 17.8], 69: [16.4, 17.1], 70: [15.8, 16.4], 71: [15.2, 15.7],
+    72: [14.6, 15.0], 73: [14.1, 14.4], 74: [13.5, 13.7], 75: [12.9, 13.1],
+    76: [12.4, 12.5], 77: [11.9, 11.9], 78: [11.4, 11.3], 79: [10.8, 10.8],
+    80: [10.3, 10.2], 81: [9.9,   9.7], 82: [9.4,   9.2], 83: [8.9,   8.7],
+    84: [8.5,   8.2], 85: [8.1,   7.8], 86: [7.6,   7.3], 87: [7.2,   6.9],
+    88: [6.8,   6.5], 89: [6.5,   6.1], 90: [6.1,   5.8]
+  }
+};
+
+// ============================================================
+// STATE
+// ============================================================
+let mode = 'adult';
+let animFrame = null;
+let birthDate = null;
+
+// ============================================================
+// UTILITIES
+// ============================================================
+function fmt(n) {
+  return Math.floor(n).toLocaleString();
+}
+
+function fmtDec(n, d) {
+  return n.toFixed(d);
+}
+
+function getDaysInMonth(year, month) {
+  return new Date(year, month + 1, 0).getDate();
+}
+
+function calcAge(dob, now) {
+  const totalMs    = now - dob;
+  const totalSecs  = totalMs / 1000;
+  const totalMins  = totalSecs / 60;
+  const totalHours = totalMins / 60;
+  const totalDays  = totalHours / 24;
+  const totalWeeks = totalDays / 7;
+
+  // Exact months
+  let months = (now.getFullYear() - dob.getFullYear()) * 12 + (now.getMonth() - dob.getMonth());
+  if (now.getDate() < dob.getDate()) months--;
+
+  // Years
+  const years = now.getFullYear() - dob.getFullYear() -
+    (now.getMonth() < dob.getMonth() || (now.getMonth() === dob.getMonth() && now.getDate() < dob.getDate()) ? 1 : 0);
+  const yearsDecimal = totalDays / 365.25;
+
+  return { totalMs, totalSecs, totalMins, totalHours, totalDays, totalWeeks, months, years, yearsDecimal };
+}
+
+// ============================================================
+// LIFE EXPECTANCY HELPERS
+// ============================================================
+function getLifeExpectancy(ageYears) {
+  // Use average (no sex data entered here; for cross-link to SLLC)
+  const lo = Math.floor(ageYears);
+  const hi = Math.min(lo + 1, 90);
+  const frac = ageYears - lo;
+  const data = LIFE_EXPECTANCY_US.byAge;
+  const loData = data[lo] || [10, 12];
+  const hiData = data[hi] || [9, 11];
+  const maleRemain = loData[0] + (hiData[0] - loData[0]) * frac;
+  const femaleRemain = loData[1] + (hiData[1] - loData[1]) * frac;
+  const avgRemain = (maleRemain + femaleRemain) / 2;
+  const avgBirthLE = (LIFE_EXPECTANCY_US.birth.male + LIFE_EXPECTANCY_US.birth.female) / 2;
+
+  // Method A: age / birth LE
+  const pctA = Math.min((ageYears / avgBirthLE) * 100, 100);
+
+  // Method B: cohort — age / (age + remaining)
+  const cohortTotal = ageYears + avgRemain;
+  const pctB = Math.min((ageYears / cohortTotal) * 100, 100);
+
+  return { pctA, pctB, avgBirthLE, avgRemain, cohortTotal };
+}
+
+// ============================================================
+// MILESTONE LOOKUP
+// ============================================================
+function getMilestoneRange(totalMonths) {
+  const keys = [2,4,6,9,12,15,18,24,30,36,48,60];
+  if (totalMonths < 2) return null;
+  if (totalMonths >= 60) return 'school';
+
+  let chosen = keys[0];
+  for (let k of keys) {
+    if (totalMonths >= k) chosen = k;
+    else break;
+  }
+  return chosen;
+}
+
+function renderMilestones(totalMonths) {
+  const milSection = document.getElementById('milestone-section');
+  if (mode !== 'child') { milSection.classList.remove('visible'); return; }
+
+  const key = getMilestoneRange(totalMonths);
+  if (!key) { milSection.classList.remove('visible'); return; }
+
+  milSection.classList.add('visible');
+
+  if (key === 'school') {
+    document.getElementById('milestone-age-heading').textContent = 'School-age development (5+ years)';
+    document.getElementById('milestone-content').innerHTML = `
+      <div class="milestone-domain">
+        <div class="milestone-domain-header">School-age context</div>
+        <div class="milestone-list">
+          <div class="milestone-item">At this age, your child's pediatrician and school will track development through standard screenings. Key areas include reading readiness, social skills with peers, emotional regulation, and fine motor skills like writing.</div>
+          <div class="milestone-item">Annual well-child visits with your pediatrician are the best way to track development at school age.</div>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  const data = CDC_MILESTONES[key];
+  document.getElementById('milestone-age-heading').textContent = `Milestones: ${data.label}`;
+
+  const domains = [
+    { title: 'Social & Emotional', items: data.social },
+    { title: 'Language & Communication', items: data.language },
+    { title: 'Cognitive', items: data.cognitive },
+    { title: 'Movement & Physical Development', items: data.motor }
+  ];
+
+  document.getElementById('milestone-content').innerHTML = domains.map(d => `
+    <div class="milestone-domain">
+      <div class="milestone-domain-header">${d.title}</div>
+      <div class="milestone-list">
+        ${d.items.map((item, i) => `
+          <div class="milestone-item">
+            <div class="milestone-check" id="mc-${key}-${d.title.replace(/\s/g,'-')}-${i}" onclick="toggleCheck(this)" role="checkbox" aria-checked="false" tabindex="0"></div>
+            <span>${item}</span>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleCheck(el) {
+  el.classList.toggle('checked');
+  el.setAttribute('aria-checked', el.classList.contains('checked'));
+}
+
+// ============================================================
+// COUNTDOWN CARDS
+// ============================================================
+function buildCountdowns(dob, now, ageYears) {
+  const milestoneAges = [18,21,25,30,40,50,60,65,70,75,80];
+  const cards = [];
+
+  // Next birthday
+  let nextBD = new Date(now.getFullYear(), dob.getMonth(), dob.getDate());
+  if (nextBD <= now) nextBD.setFullYear(now.getFullYear() + 1);
+  const daysToNextBD = Math.ceil((nextBD - now) / 86400000);
+  const nextAge = now.getFullYear() - dob.getFullYear() + (nextBD.getFullYear() > now.getFullYear() ? 1 : 0);
+  cards.push({ days: daysToNextBD, event: `${nextAge}th birthday` });
+
+  // Next milestone age
+  for (let ma of milestoneAges) {
+    if (ageYears < ma) {
+      const milestoneDt = new Date(dob.getFullYear() + ma, dob.getMonth(), dob.getDate());
+      const daysTo = Math.ceil((milestoneDt - now) / 86400000);
+      cards.push({ days: daysTo, event: `Age ${ma}` });
+      break;
+    }
+  }
+
+  // Half of average lifespan
+  const avgLE = (LIFE_EXPECTANCY_US.birth.male + LIFE_EXPECTANCY_US.birth.female) / 2;
+  const halfLE = avgLE / 2;
+  if (ageYears < halfLE) {
+    const halfDt = new Date(dob.getTime() + halfLE * 365.25 * 86400000);
+    const daysTo = Math.ceil((halfDt - now) / 86400000);
+    cards.push({ days: daysTo, event: `Half of avg. lifespan (${fmtDec(halfLE,1)} yrs)` });
+  }
+
+  // 10,000 days old
+  const tenKDt = new Date(dob.getTime() + 10000 * 86400000);
+  if (tenKDt > now) {
+    const daysTo = Math.ceil((tenKDt - now) / 86400000);
+    cards.push({ days: daysTo, event: '10,000 days old' });
+  }
+
+  // 1000 months old
+  const kMonthDt = new Date(dob.getFullYear(), dob.getMonth() + 1000, dob.getDate());
+  if (kMonthDt > now) {
+    const daysTo = Math.ceil((kMonthDt - now) / 86400000);
+    cards.push({ days: daysTo, event: '1,000 months old' });
+  }
+
+  const html = cards.slice(0,6).map(c => `
+    <div class="countdown-card">
+      <div class="countdown-days">${c.days.toLocaleString()}</div>
+      <div class="countdown-event">days until<br>${c.event}</div>
+    </div>
+  `).join('');
+  document.getElementById('countdown-cards').innerHTML = html;
+}
+
+// ============================================================
+// SHARE TEXT
+// ============================================================
+function buildShareText(months, name) {
+  const nameStr = name ? `${name} is` : 'I am';
+  return `${nameStr} ${months.toLocaleString()} months old. How many months are you?\nageinmonths.com`;
+}
+
+let shareText = '';
+
+function copyShare() {
+  navigator.clipboard.writeText(shareText).then(() => {
+    const el = document.getElementById('share-copied');
+    el.textContent = '✓ Copied to clipboard!';
+    setTimeout(() => { el.textContent = ''; }, 2500);
+  });
+}
+
+// ============================================================
+// MAIN UPDATE FUNCTION
+// ============================================================
+function update() {
+  const dobVal = document.getElementById('dob').value;
+  if (!dobVal) return;
+
+  birthDate = new Date(dobVal + 'T00:00:00');
+  if (isNaN(birthDate)) return;
+
+  const now = new Date();
+  if (birthDate > now) return;
+
+  const name = document.getElementById('person-name').value.trim();
+  const { totalDays, totalWeeks, totalHours, totalMins, totalSecs, months, years, yearsDecimal } = calcAge(birthDate, now);
+
+  // Show results
+  document.getElementById('results-section').classList.add('visible');
+
+  // Greeting
+  const greet = name ? `${name} is` : 'You are';
+  document.getElementById('greeting-line').textContent = greet;
+
+  // Main numbers (static at moment of calculation — live updates handled by ticker)
+  document.getElementById('display-months').textContent = fmt(months);
+  document.getElementById('display-years-decimal').textContent = `${fmtDec(yearsDecimal, 2)} years`;
+
+  document.getElementById('stat-years').textContent = years;
+  document.getElementById('stat-years-sub').textContent = `${fmtDec(yearsDecimal, 2)} decimal years`;
+  document.getElementById('stat-weeks').textContent = fmt(totalWeeks);
+  document.getElementById('stat-days').textContent = fmt(totalDays);
+
+  // Fun stats
+  const heartbeats = totalDays * 24 * 60 * 70;
+  document.getElementById('stat-heartbeats').textContent = fmt(heartbeats);
+
+  const sleepDays = totalDays / 3;
+  const sleepYears = Math.floor(sleepDays / 365);
+  const sleepRem = Math.floor((sleepDays % 365) / 30);
+  document.getElementById('stat-sleep').textContent = `${sleepYears}y ${sleepRem}mo`;
+
+  const eatHours = totalDays * 1.5;
+  const eatMonths = Math.floor(eatHours / 730);
+  document.getElementById('stat-eating').textContent = `~${eatMonths} months`;
+
+  document.getElementById('stat-sunrises').textContent = fmt(totalDays);
+
+  // Life % progress bars
+  const le = getLifeExpectancy(yearsDecimal);
+  document.getElementById('bar-a').style.width = Math.min(le.pctA, 100) + '%';
+  document.getElementById('bar-b').style.width = Math.min(le.pctB, 100) + '%';
+  document.getElementById('pct-a').textContent = fmtDec(le.pctA, 1) + '%';
+  document.getElementById('pct-b').textContent = fmtDec(le.pctB, 1) + '%';
+  document.getElementById('explain-a').textContent =
+    `${fmtDec(yearsDecimal,1)} ÷ ${fmtDec(le.avgBirthLE,1)} years (birth life expectancy, US average) = ${fmtDec(le.pctA,1)}%`;
+  document.getElementById('explain-b').textContent =
+    `${fmtDec(yearsDecimal,1)} ÷ ${fmtDec(le.cohortTotal,1)} years (cohort-adjusted total) = ${fmtDec(le.pctB,1)}%`;
+
+  // Countdowns
+  buildCountdowns(birthDate, now, yearsDecimal);
+
+  // Milestones
+  renderMilestones(months);
+
+  // Share
+  shareText = buildShareText(months, name);
+  document.getElementById('share-preview').textContent = shareText;
+
+  // Start live ticker
+  if (animFrame) cancelAnimationFrame(animFrame);
+  startTicker();
+}
+
+// ============================================================
+// LIVE TICKER
+// ============================================================
+function startTicker() {
+  function tick() {
+    if (!birthDate) return;
+    const now = new Date();
+    const totalMs = now - birthDate;
+    const totalSecs  = totalMs / 1000;
+    const totalMins  = totalSecs / 60;
+    const totalHours = totalMins / 60;
+
+    document.getElementById('stat-hours').textContent   = fmt(totalHours);
+    document.getElementById('stat-minutes').textContent = fmt(totalMins);
+    document.getElementById('stat-seconds').textContent = fmt(totalSecs);
+
+    animFrame = requestAnimationFrame(tick);
+  }
+  tick();
+}
+
+// ============================================================
+// MODE TOGGLE
+// ============================================================
+function setMode(m) {
+  mode = m;
+  document.getElementById('btn-adult').classList.toggle('active', m === 'adult');
+  document.getElementById('btn-child').classList.toggle('active', m === 'child');
+  // Re-render milestone section
+  if (birthDate) {
+    const now = new Date();
+    const { months } = calcAge(birthDate, now);
+    renderMilestones(months);
+  }
+}
+
+// ============================================================
+// INIT
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+  // Set max date to today
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('dob').max = today;
+
+  document.getElementById('dob').addEventListener('change', update);
+  document.getElementById('person-name').addEventListener('input', update);
+});
+</script>
+
+</body>
+</html>

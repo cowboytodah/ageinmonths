@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — AgeInMonths.com</title>
+  <meta name="description" content="About AgeInMonths.com — a free tool to calculate your exact age in months, weeks, days, hours and more, with a baby milestone tracker for parents.">
+  <link rel="canonical" href="https://ageinmonths.com/about.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1a2744; --navy-mid: #2e3e6b; --amber: #d4893a; --amber-light: #e8a85c;
+      --amber-pale: #fdf3e7; --cream: #faf8f4; --cream-dark: #f2ede3;
+      --text-dark: #1a1a1a; --text-body: #3d3d3d; --text-muted: #7a7a7a;
+      --white: #ffffff; --border: #e2ddd4;
+      --shadow-sm: 0 1px 4px rgba(26,39,68,0.07); --shadow-md: 0 4px 20px rgba(26,39,68,0.10);
+      --radius: 12px; --radius-lg: 20px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text-body); line-height: 1.7; font-size: 16px; }
+    nav { background: var(--navy); padding: 0 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.2); }
+    .nav-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--white); text-decoration: none; }
+    .nav-brand span { color: var(--amber-light); }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .page-hero { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%); padding: 60px 24px; text-align: center; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--white); font-weight: 700; margin-bottom: 12px; }
+    .page-hero p { color: rgba(255,255,255,0.65); max-width: 520px; margin: 0 auto; }
+    .main-wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px 64px; }
+    .prose h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--navy); font-weight: 600; margin: 40px 0 14px; }
+    .prose p { margin-bottom: 16px; line-height: 1.75; }
+    .prose a { color: var(--amber); text-decoration: none; font-weight: 500; }
+    .prose a:hover { text-decoration: underline; }
+    .callout { background: var(--amber-pale); border-left: 3px solid var(--amber); border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 24px; margin: 28px 0; }
+    .callout p { margin: 0; color: var(--text-body); }
+    footer { background: var(--navy); color: rgba(255,255,255,0.65); padding: 48px 24px 32px; margin-top: 0; }
+    .footer-inner { max-width: 960px; margin: 0 auto; }
+    .footer-companion { background: rgba(212,137,58,0.12); border: 1px solid rgba(212,137,58,0.25); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 32px; }
+    .footer-companion p { color: rgba(255,255,255,0.8); font-size: 0.9rem; }
+    .footer-companion a { color: var(--amber-light); text-decoration: none; font-weight: 600; }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
+    .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.85); }
+    .footer-attribution { font-size: 0.78rem; color: rgba(255,255,255,0.35); line-height: 1.7; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">Age<span>In</span>Months</a>
+    <div class="nav-links">
+      <a href="/about.html">About</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="https://statisticallifeleft.com">Life Remaining →</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <h1>About AgeInMonths.com</h1>
+  <p>A small tool built with genuine care for parents, curious minds, and anyone who has wondered exactly how long they've been on Earth.</p>
+</header>
+
+<main class="main-wrap">
+  <div class="prose">
+
+    <h2>Why does this exist?</h2>
+    <p>If you've ever taken a baby to the pediatrician, you've been asked "how old is she?" and you've probably answered in months — "seven months," "fourteen months" — because that's how medicine and child development work. Months are the natural unit for the first few years of life.</p>
+    <p>But beyond babyhood, we lose the habit. We stop counting months around age two or three, and switch to years. That means most adults have no idea how many months old they actually are — even though the number is surprisingly powerful. "I am 487 months old" lands differently than "I am 40 years old." It reframes time in a way that years no longer do.</p>
+    <p>AgeInMonths.com exists to answer that question instantly, precisely, and beautifully — for babies being tracked by their parents, and for adults who want a fresh perspective on their time alive.</p>
+
+    <h2>Who is this for?</h2>
+    <p><strong>Parents of babies and toddlers.</strong> You are our most important users. We've embedded the complete CDC Learn the Signs. Act Early. developmental milestone checklists so you can see exactly what milestones are expected at your child's current age in months — and check them off as they're achieved. The CDC data is the gold standard, and we update it whenever the CDC does.</p>
+    <p><strong>Anyone curious about time.</strong> There is something about seeing your age in every unit simultaneously — weeks, days, hours, minutes, heartbeats — that creates a kind of clarity. You've been alive for a specific, countable number of moments. This tool makes that concrete.</p>
+    <p><strong>The FIRE and productivity community.</strong> Thinking about your age in weeks or months rather than years is a habit associated with intentional living. It makes you more aware of how quickly time passes and motivates better use of the time remaining.</p>
+
+    <div class="callout">
+      <p>AgeInMonths.com is part of a pair of companion tools. <a href="https://statisticallifeleft.com">StatisticalLifeLeft.com</a> answers the other half of the question — using CDC actuarial data to show exactly how much time you statistically have remaining, expressed in every unit from years down to days.</p>
+    </div>
+
+    <h2>The data we use</h2>
+    <p>All CDC developmental milestone data is embedded directly in the calculator from the 2022 revision of the CDC Learn the Signs. Act Early. program. No external API calls are made. The data is accurate and verifiable — you can compare it directly against the CDC's published milestones at <a href="https://www.cdc.gov/ncbddd/actearly" target="_blank" rel="noopener">cdc.gov/ncbddd/actearly</a>.</p>
+    <p>Life expectancy data for the lifespan percentage calculation comes from the CDC National Vital Statistics Reports (most recent edition). Full methodology and citations are on our <a href="/methodology.html">methodology page</a>.</p>
+
+    <h2>Your privacy</h2>
+    <p>Your date of birth is never sent to any server. All calculations happen entirely in your browser using JavaScript. We do not set any cookies except those required by our advertising partner (Google AdSense) for ad delivery. We do not collect, store, or sell any personal information. See our <a href="/privacy.html">privacy policy</a> for the complete details — it is deliberately short because there is very little to say.</p>
+
+    <h2>Technical notes</h2>
+    <p>The site is built with pure HTML, CSS, and JavaScript — no frameworks, no libraries, no build process. Every calculation runs client-side, which means it works offline once loaded, loads fast on any connection, and cannot be disrupted by a server going down. The live second counter uses <code>requestAnimationFrame</code> rather than <code>setInterval</code> for smooth performance without battery drain.</p>
+
+    <h2>Feedback</h2>
+    <p>If you find an error in the milestone data, a calculation that seems wrong, or have a suggestion, the data sources page lists the authoritative references so you can check our work. We take accuracy seriously, especially for the developmental milestone content.</p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-companion">
+      <p>Explore our companion tool: <a href="https://statisticallifeleft.com">StatisticalLifeLeft.com</a> — see your remaining years, months, weeks and days using CDC actuarial data.</p>
+    </div>
+    <div class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/data-sources.html">Data Sources</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="https://statisticallifeleft.com">StatisticalLifeLeft.com</a>
+    </div>
+    <div class="footer-attribution">
+      Life expectancy data: CDC National Vital Statistics Reports and WHO Global Health Observatory.<br>
+      Developmental milestone data: CDC Learn the Signs. Act Early. program.<br>
+      This tool provides statistical estimates for general information only and is not medical or financial advice.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

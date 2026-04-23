@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Methodology — How We Calculate Your Age — AgeInMonths.com</title>
+  <meta name="description" content="Full explanation of how AgeInMonths.com calculates age in months, weeks, days, and life percentage. CDC data sources and methodology explained.">
+  <link rel="canonical" href="https://ageinmonths.com/methodology.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1a2744; --navy-mid: #2e3e6b; --amber: #d4893a; --amber-light: #e8a85c;
+      --amber-pale: #fdf3e7; --cream: #faf8f4; --cream-dark: #f2ede3;
+      --text-dark: #1a1a1a; --text-body: #3d3d3d; --text-muted: #7a7a7a;
+      --white: #ffffff; --border: #e2ddd4;
+      --shadow-sm: 0 1px 4px rgba(26,39,68,0.07);
+      --radius: 12px; --radius-lg: 20px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text-body); line-height: 1.7; font-size: 16px; }
+    nav { background: var(--navy); padding: 0 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.2); }
+    .nav-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--white); text-decoration: none; }
+    .nav-brand span { color: var(--amber-light); }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .page-hero { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%); padding: 60px 24px; text-align: center; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--white); font-weight: 700; margin-bottom: 12px; }
+    .page-hero p { color: rgba(255,255,255,0.65); max-width: 560px; margin: 0 auto; }
+    .main-wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px 64px; }
+    .prose h2 { font-family: 'Playfair Display', serif; font-size: 1.45rem; color: var(--navy); font-weight: 600; margin: 40px 0 14px; border-bottom: 1.5px solid var(--border); padding-bottom: 10px; }
+    .prose h3 { font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700; color: var(--navy); margin: 24px 0 8px; }
+    .prose p { margin-bottom: 16px; line-height: 1.75; }
+    .prose a { color: var(--amber); text-decoration: none; font-weight: 500; }
+    .prose a:hover { text-decoration: underline; }
+    .prose ul { margin: 0 0 16px 20px; }
+    .prose li { margin-bottom: 6px; }
+    .formula-box { background: var(--navy); color: var(--white); border-radius: var(--radius); padding: 18px 24px; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6; margin: 16px 0; overflow-x: auto; }
+    .formula-box .comment { color: rgba(212,137,58,0.9); }
+    .example-box { background: var(--amber-pale); border-left: 3px solid var(--amber); border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 24px; margin: 20px 0; }
+    .example-box strong { display: block; margin-bottom: 8px; color: var(--navy); }
+    .toc { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; margin-bottom: 40px; }
+    .toc h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--navy); margin-bottom: 12px; }
+    .toc ol { margin-left: 20px; }
+    .toc li { margin-bottom: 6px; }
+    .toc a { color: var(--amber); text-decoration: none; font-size: 0.9rem; }
+    footer { background: var(--navy); color: rgba(255,255,255,0.65); padding: 48px 24px 32px; }
+    .footer-inner { max-width: 960px; margin: 0 auto; }
+    .footer-companion { background: rgba(212,137,58,0.12); border: 1px solid rgba(212,137,58,0.25); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 32px; }
+    .footer-companion p { color: rgba(255,255,255,0.8); font-size: 0.9rem; }
+    .footer-companion a { color: var(--amber-light); text-decoration: none; font-weight: 600; }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
+    .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.85); }
+    .footer-attribution { font-size: 0.78rem; color: rgba(255,255,255,0.35); line-height: 1.7; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">Age<span>In</span>Months</a>
+    <div class="nav-links">
+      <a href="/about.html">About</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="https://statisticallifeleft.com">Life Remaining →</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <h1>Methodology</h1>
+  <p>A complete explanation of how every calculation on AgeInMonths.com works, including data sources and worked examples.</p>
+</header>
+
+<main class="main-wrap">
+
+  <nav class="toc" aria-label="Table of contents">
+    <h3>Contents</h3>
+    <ol>
+      <li><a href="#age-calculation">How age is calculated</a></li>
+      <li><a href="#live-counters">Live counters</a></li>
+      <li><a href="#derived-stats">Heartbeats, sleep, and eating</a></li>
+      <li><a href="#lifespan-percentage">Lifespan percentage — two methods</a></li>
+      <li><a href="#milestones">CDC developmental milestones</a></li>
+      <li><a href="#data-currency">Data currency and updates</a></li>
+      <li><a href="#limitations">Limitations</a></li>
+    </ol>
+  </nav>
+
+  <div class="prose">
+
+    <h2 id="age-calculation">How age is calculated</h2>
+    <p>All age calculations use your exact date of birth compared to the precise current date and time at the moment of calculation. No rounding occurs except where explicitly noted.</p>
+
+    <h3>Age in months</h3>
+    <p>Months are calculated by the calendar method — the number of complete calendar months elapsed since the date of birth. This is how pediatricians count age in months and how the CDC milestone guidelines define age ranges.</p>
+    <div class="formula-box">
+      <span class="comment">// Calendar month calculation</span><br>
+      months = (currentYear − birthYear) × 12 + (currentMonth − birthMonth)<br>
+      <span class="comment">// Subtract 1 if the day of the current month</span><br>
+      <span class="comment">// has not yet reached the birth day of the month</span><br>
+      if (currentDay &lt; birthDay) months = months − 1
+    </div>
+    <p>This matches how parents and doctors count — a baby born on March 15 reaches "3 months old" on June 15, not on an arbitrary day count.</p>
+
+    <h3>Age in weeks, days, hours, minutes, seconds</h3>
+    <p>All other units use elapsed milliseconds since birth, converted to the target unit using exact conversion factors:</p>
+    <div class="formula-box">
+      totalMs    = now − birthDate (milliseconds)<br>
+      totalSecs  = totalMs ÷ 1,000<br>
+      totalMins  = totalSecs ÷ 60<br>
+      totalHours = totalMins ÷ 60<br>
+      totalDays  = totalHours ÷ 24<br>
+      totalWeeks = totalDays ÷ 7
+    </div>
+    <p>Leap years, daylight saving time changes, and varying month lengths are all handled automatically by JavaScript's <code>Date</code> object, which works in UTC milliseconds internally.</p>
+
+    <h3>Age in years (decimal)</h3>
+    <p>The decimal year age is calculated as <code>totalDays ÷ 365.25</code> to account for leap years over time. This is used for life expectancy percentage calculations.</p>
+
+    <h2 id="live-counters">Live counters</h2>
+    <p>Hours, minutes, and seconds use <code>requestAnimationFrame</code> to update continuously. This approach is more battery-efficient than <code>setInterval</code> because the browser throttles animation frames in background tabs. The counters update on every display frame (approximately 60 times per second) but read from <code>new Date()</code> which is accurate to the millisecond.</p>
+
+    <h2 id="derived-stats">Heartbeats, sleep, and eating</h2>
+
+    <h3>Heartbeats</h3>
+    <div class="formula-box">
+      heartbeats = totalDays × 24 hours × 60 minutes × 70 beats/minute
+    </div>
+    <p>The resting heart rate of 70 beats per minute is the widely used average adult resting heart rate. For infants and children, resting heart rates are higher (100–160 bpm for newborns), so this calculation underestimates total heartbeats for anyone who spent significant time as a very young child. We use 70 bpm as a universally understood approximation.</p>
+
+    <h3>Time spent sleeping</h3>
+    <div class="formula-box">
+      sleepDays = totalDays × (1 ÷ 3)<br>
+      <span class="comment">// One third of life spent sleeping is a widely cited</span><br>
+      <span class="comment">// population-level approximation (8 hours ÷ 24 hours)</span>
+    </div>
+
+    <h3>Time spent eating</h3>
+    <div class="formula-box">
+      eatHours = totalDays × 1.5<br>
+      <span class="comment">// 1.5 hours per day is the US average eating time</span><br>
+      <span class="comment">// Source: Bureau of Labor Statistics American Time Use Survey</span>
+    </div>
+
+    <h2 id="lifespan-percentage">Lifespan percentage — two methods</h2>
+    <p>We calculate what percentage of an average lifespan you have lived using two different approaches. Both are legitimate and both are informative — they answer slightly different questions.</p>
+
+    <h3>Method A — Birth life expectancy</h3>
+    <p>This method divides your current age by the life expectancy at birth for your demographic group (US average, combined sexes).</p>
+    <div class="formula-box">
+      percentageLived = (ageInYears ÷ birthLifeExpectancy) × 100<br><br>
+      <span class="comment">// Example: 35-year-old, US average birth LE = 76.4 years</span><br>
+      percentageLived = (35 ÷ 76.4) × 100 = 45.8%
+    </div>
+    <p>This is the simpler, more intuitive calculation. Its limitation is that it uses the life expectancy assigned at birth — which included the risk of dying young — as the denominator. Since you have already survived to your current age, your actual expected total lifespan is somewhat higher.</p>
+
+    <h3>Method B — Cohort-adjusted life expectancy</h3>
+    <p>This method accounts for the fact that by surviving to your current age, your remaining life expectancy is higher than it was at birth. It uses the conditional remaining life expectancy from the CDC life table.</p>
+    <div class="formula-box">
+      cohortTotal    = ageInYears + remainingYearsAtCurrentAge<br>
+      percentageLived = (ageInYears ÷ cohortTotal) × 100<br><br>
+      <span class="comment">// Example: 35-year-old, remaining LE at 35 = 43.2 years</span><br>
+      cohortTotal     = 35 + 43.2 = 78.2 years<br>
+      percentageLived = (35 ÷ 78.2) × 100 = 44.8%
+    </div>
+
+    <div class="example-box">
+      <strong>Why the two methods give different numbers</strong>
+      Method B is conceptually more accurate because it reflects your actual statistical situation — you have already survived the risks that were built into the birth life expectancy calculation. A significant portion of birth life expectancy is reduced by infant and child mortality rates. Once you've survived past early childhood, your expected total lifespan is meaningfully higher than the number calculated at birth.<br><br>
+      For a full actuarial breakdown of remaining time, see our companion tool <a href="https://statisticallifeleft.com">StatisticalLifeLeft.com</a>.
+    </div>
+
+    <p>The remaining life expectancy values by age are taken from the CDC National Vital Statistics Reports (complete life tables, most recent edition). Values between whole years are linearly interpolated.</p>
+
+    <h2 id="milestones">CDC developmental milestones</h2>
+    <p>The milestone checklist data is taken directly from the CDC Learn the Signs. Act Early. program, specifically the <a href="https://www.cdc.gov/ncbddd/actearly" target="_blank" rel="noopener">2022 revised milestone checklist</a>. The 2022 revision was a significant update to the previous version, with milestone language revised based on new evidence and some milestone ages shifted.</p>
+    <p>Milestones are provided for ages: 2 months, 4 months, 6 months, 9 months, 12 months, 15 months, 18 months, 24 months, 30 months, 36 months, 48 months, and 60 months — matching the CDC's published checkpoints exactly.</p>
+    <p>For children above 60 months (5 years), the CDC recommends tracking development through pediatric well-child visits rather than specific checklist milestones. We reflect this in the tool.</p>
+    <p><strong>Attribution:</strong> CDC Learn the Signs. Act Early. — last updated 2022. Milestones are reproduced for educational reference under the CDC's public domain policy. Always consult your pediatrician for developmental concerns.</p>
+
+    <h2 id="data-currency">Data currency and updates</h2>
+    <p>The life expectancy data currently embedded in this tool is from the CDC National Vital Statistics Reports, most recent edition available at time of last update. The CDC typically releases updated life tables every 12 to 18 months. We check for updates annually and update the embedded data constants when new figures are published.</p>
+    <p>The CDC milestone data was last revised in 2022. We monitor the CDC Learn the Signs. Act Early. program for any future revisions.</p>
+    <p>You can find the authoritative current data at:</p>
+    <ul>
+      <li><a href="https://www.cdc.gov/nchs/products/life_tables.htm" target="_blank" rel="noopener">CDC Life Tables — cdc.gov/nchs/products/life_tables.htm</a></li>
+      <li><a href="https://www.cdc.gov/ncbddd/actearly/milestones/index.html" target="_blank" rel="noopener">CDC Developmental Milestones — cdc.gov/ncbddd/actearly</a></li>
+    </ul>
+
+    <h2 id="limitations">Limitations</h2>
+    <p><strong>Age calculations:</strong> All calculations assume the birth date is at midnight (00:00:00) on the date entered. If you were born at 11:58pm, your "hours old" figure will be very slightly higher than actual. For most purposes this is negligible.</p>
+    <p><strong>Life expectancy percentages:</strong> Life expectancy figures are population-level averages. They describe the statistical central tendency of large populations, not predictions for any individual. Many people live significantly longer or shorter than the statistical average. These numbers are intended to provide perspective, not to forecast your individual future.</p>
+    <p><strong>Developmental milestones:</strong> Milestone guidelines describe typical development in most children. A wide range of development is considered normal. Many children reach milestones earlier or later than the listed checkpoints without any developmental concern. These checklists are not diagnostic tools. Please discuss any questions about your child's development with their pediatrician.</p>
+    <p><strong>Heartbeat calculation:</strong> The 70 beats per minute figure is a population average for adults. Individual resting heart rates vary widely (50–100 bpm is the normal range). Athletes may have resting heart rates below 50 bpm. The heartbeat total should be understood as an approximation.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-companion">
+      <p>Explore our companion tool: <a href="https://statisticallifeleft.com">StatisticalLifeLeft.com</a> — see your remaining years, months, weeks and days using CDC actuarial data.</p>
+    </div>
+    <div class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="/methodology.html">Methodology</a>
+      <a href="/data-sources.html">Data Sources</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="https://statisticallifeleft.com">StatisticalLifeLeft.com</a>
+    </div>
+    <div class="footer-attribution">
+      Life expectancy data: CDC National Vital Statistics Reports and WHO Global Health Observatory.<br>
+      Developmental milestone data: CDC Learn the Signs. Act Early. program.<br>
+      This tool provides statistical estimates for general information only and is not medical or financial advice.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
